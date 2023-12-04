@@ -1,7 +1,7 @@
 use regex::Regex;
 use std::fs::read_to_string;
 
-pub fn solve_d2p1() -> (i32, i32) {
+pub fn solve_d2() -> (i32, i32) {
     let mut res = 0;
     let mut power_cubes = 0;
     let lines = read_lines("data/d02.txt");
