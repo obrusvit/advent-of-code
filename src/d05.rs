@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 use std::fs::read_to_string;
+
 #[derive(Debug, Eq, Hash, PartialEq)]
 struct Range {
     start: i64,
@@ -125,9 +126,7 @@ pub fn solve_d5() -> (i64, i64) {
         let temperature = get_from_map(&light_2_temperature, light);
         let humidity = get_from_map(&temperature_2_humidity, temperature);
         let location = get_from_map(&humidity_2_location, humidity);
-        if location < res1 {
-            res1 = location;
-        }
+        res1 = res1.min(location);
     }
 
     let mut loc_cand = 0;
@@ -146,5 +145,6 @@ pub fn solve_d5() -> (i64, i64) {
         }
         loc_cand += 1;
     }
+    // 457535844, 41222968
     (res1, loc_cand)
 }
