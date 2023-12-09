@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 mod utils;
 
 mod d01;
@@ -30,9 +33,9 @@ fn main() {
     // println!("Day5 result: part 1 = {d5p1}");
     // println!("Day5 result: part 2 = {d5p2}");
 
-    let (d6p1, d6p2) = d06::solve_d6();
-    println!("Day6 result: part 1 = {d6p1}");
-    println!("Day6 result: part 2 = {d6p2}");
+    // let (d6p1, d6p2) = d06::solve_d6();
+    // println!("Day6 result: part 1 = {d6p1}");
+    // println!("Day6 result: part 2 = {d6p2}");
 
     let (d7p1, d7p2) = d07::solve_d7();
     println!("Day7 result: part 1 = {d7p1}");
