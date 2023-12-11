@@ -19,6 +19,7 @@ fn extrapolate_sequence(seq: &Vec<i64>) -> (i64, i64) {
     let extrapolate_back = seq.iter().last().unwrap() + ex_back;
     (extrapolate_front, extrapolate_back)
 }
+
 pub fn solve_d9() -> (i64, i64) {
     let lines = read_lines("data/d09.txt");
     let mut res_p1 = 0;
