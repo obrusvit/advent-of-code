@@ -13,6 +13,7 @@ mod d07;
 mod d08;
 mod d09;
 mod d10;
+mod d11;
 
 fn main() {
     // println!("Hello Advent of Code 2023!");
@@ -54,5 +55,10 @@ fn main() {
 
     let (d10p1, d10p2) = d10::solve_d10();
     println!("Day10 result: part 1 = {d10p1}");
+    // TODO
     println!("Day10 result: part 2 = {d10p2}");
+
+    let (d11p1, d11p2) = d11::solve_d11();
+    println!("Day11 result: part 1 = {d11p1}");
+    println!("Day11 result: part 2 = {d11p2}");
 }
