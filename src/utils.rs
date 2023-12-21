@@ -25,7 +25,7 @@ pub fn str_to<T: std::str::FromStr>(s: &str) -> T {
 
 pub fn str_array_to_vec<T: std::str::FromStr>(s: &str) -> Vec<T> {
     s.trim()
-        .split_whitespace()
+        .split(|c| c == ',' || c == ' ')
         .map(|d| str_to::<T>(d))
         .collect()
 }

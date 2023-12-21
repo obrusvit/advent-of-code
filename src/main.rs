@@ -14,6 +14,10 @@ mod d08;
 mod d09;
 mod d10;
 mod d11;
+mod d12;
+mod d13;
+//mod d14;
+mod d15;
 
 fn main() {
     // println!("Hello Advent of Code 2023!");
@@ -53,12 +57,24 @@ fn main() {
     // println!("Day9 result: part 1 = {d9p1}");
     // println!("Day9 result: part 2 = {d9p2}");
 
-    let (d10p1, d10p2) = d10::solve_d10();
-    println!("Day10 result: part 1 = {d10p1}");
-    // TODO
-    println!("Day10 result: part 2 = {d10p2}");
+    // let (d10p1, d10p2) = d10::solve_d10();
+    // println!("Day10 result: part 1 = {d10p1}");
+    // // TODO
+    // println!("Day10 result: part 2 = {d10p2}");
 
-    let (d11p1, d11p2) = d11::solve_d11();
-    println!("Day11 result: part 1 = {d11p1}");
-    println!("Day11 result: part 2 = {d11p2}");
+    // let (d11p1, d11p2) = d11::solve_d11();
+    // println!("Day11 result: part 1 = {d11p1}");
+    // println!("Day11 result: part 2 = {d11p2}");
+    //
+    let (d12p1, d12p2) = d12::solve_d12();
+    println!("Day12 result: part 1 = {d12p1}");
+    println!("Day12 result: part 2 = {d12p2}");
+
+    // let (d13p1, d13p2) = d13::solve_d13();
+    // println!("Day13 result: part 1 = {d13p1}");
+    // println!("Day13 result: part 2 = {d13p2}");
+
+    // let (d15p1, d15p2) = d15::solve_d15();
+    // println!("Day15 result: part 1 = {d15p1}");
+    // println!("Day15 result: part 2 = {d15p2}");
 }
