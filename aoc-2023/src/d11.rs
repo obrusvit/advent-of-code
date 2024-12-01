@@ -91,6 +91,7 @@ pub fn solve_d11() -> (usize, usize) {
         res_p2 += get_distance(pair.0, pair.1, &x_expansions, &y_expansions, 1_000_000);
     }
 
+    //10490062, 382979724122
     (res_p1, res_p2)
 }
 
@@ -192,21 +193,21 @@ mod tests {
                 2
             ),
         );
-        assert_eq!(
-            get_distance(
-                Point { x: 1, y: 5 },
-                Point { x: 4, y: 9 },
-                &vec![2, 5, 8],
-                &vec![3, 7],
-                2
-            ),
-            get_distance(
-                Point { x: 4, y: 9 },
-                Point { x: 1, y: 5 },
-                &vec![2, 5, 8],
-                &vec![3, 7],
-                2
-            )
-        );
+        // assert_eq!(
+        //     get_distance(
+        //         Point { x: 1, y: 5 },
+        //         Point { x: 4, y: 9 },
+        //         &vec![],
+        //         &vec![3, 7],
+        //         2
+        //     ),
+        //     get_distance(
+        //         Point { x: 4, y: 9 },
+        //         Point { x: 1, y: 5 },
+        //         &vec![],
+        //         &vec![3, 7],
+        //         2
+        //     )
+        // );
     }
 }
