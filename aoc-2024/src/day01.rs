@@ -1,19 +1,12 @@
-use crate::Solution;
+use crate::{utils, Solution};
 
 pub struct Day01;
-
-fn parse_numbers_from_string(input: &str) -> Vec<i32> {
-    input
-        .split_whitespace()
-        .map(|s| s.parse().unwrap())
-        .collect()
-}
 
 impl Solution for Day01 {
     fn part1(&self, input: &str) -> String {
         let (mut v1, mut v2): (Vec<i32>, Vec<i32>) = input
             .lines()
-            .map(parse_numbers_from_string)
+            .map(utils::parse_numbers_from_string)
             .map(|nums| (nums[0], nums[1]))
             .unzip();
         v1.sort();
@@ -29,7 +22,7 @@ impl Solution for Day01 {
     fn part2(&self, input: &str) -> String {
         let (v1, v2): (Vec<i32>, Vec<i32>) = input
             .lines()
-            .map(parse_numbers_from_string)
+            .map(utils::parse_numbers_from_string)
             .map(|nums| (nums[0], nums[1]))
             .unzip();
         v1.iter()

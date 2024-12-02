@@ -1,7 +1,5 @@
 use aoc_2024::{day01, utils, Solution};
 use clap::Parser;
-use std::fs;
-use std::path::Path;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -23,9 +21,7 @@ fn main() {
     let args = Args::parse();
     args.days.iter().for_each(|day| {
         // Read input file
-        let input_path = format!("data/day{:02}.txt", day);
-        let input = fs::read_to_string(Path::new(&input_path))
-            .unwrap_or_else(|_| panic!("Error reading input file for day {}", day));
+        let input = utils::read_input(*day);
 
         // Get and run appropriate solver
         if let Some(solver) = get_solver(*day) {

@@ -12,6 +12,14 @@ pub mod utils {
         fs::read_to_string(Path::new(&input_path))
             .unwrap_or_else(|_| panic!("Error reading input file for day {}", day))
     }
+
+    pub fn parse_numbers_from_string(input: &str) -> Vec<i32> {
+        input
+            .split_whitespace()
+            .map(|s| s.parse().unwrap())
+            .collect()
+    }
 }
 
 pub mod day01;
+pub mod day02;
