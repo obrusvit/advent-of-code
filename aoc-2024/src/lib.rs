@@ -21,10 +21,7 @@ pub mod utils {
     }
 
     pub fn parse_numbers_from_string_comma(input: &str) -> Vec<i32> {
-        input
-            .split(",")
-            .map(|s| s.parse().unwrap())
-            .collect()
+        input.split(",").map(|s| s.parse().unwrap()).collect()
     }
 }
 
@@ -39,6 +36,7 @@ pub mod day08;
 pub mod day09;
 pub mod day10;
 pub mod day11;
+pub mod day12;
 
 pub fn get_solver(day: u8) -> Option<Box<dyn Solution>> {
     match day {
@@ -53,6 +51,7 @@ pub fn get_solver(day: u8) -> Option<Box<dyn Solution>> {
         9 => Some(Box::new(day09::Day09)),
         10 => Some(Box::new(day10::Day10)),
         11 => Some(Box::new(day11::Day11)),
+        12 => Some(Box::new(day12::Day12)),
         _ => None,
     }
 }
