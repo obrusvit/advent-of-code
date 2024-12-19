@@ -1,8 +1,20 @@
-use std::{collections::HashSet, ops::Add};
+use crate::utils::{Coord, Direction};
+use std::collections::HashSet;
 
 use crate::Solution;
 
 pub struct Day06;
+
+impl Direction {
+    fn turn_right(&self) -> Direction {
+        match self {
+            Direction::Up => Direction::Right,
+            Direction::Down => Direction::Left,
+            Direction::Right => Direction::Down,
+            Direction::Left => Direction::Up,
+        }
+    }
+}
 
 #[derive(Copy, Clone, Debug)]
 enum Terrain {
@@ -11,49 +23,6 @@ enum Terrain {
 }
 
 type Map = Vec<Vec<Terrain>>;
-
-#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-struct Coord {
-    x: i32,
-    y: i32,
-}
-impl Add for Coord {
-    type Output = Coord;
-    fn add(self, other: Coord) -> Coord {
-        Coord {
-            x: self.x + other.x,
-            y: self.y + other.y,
-        }
-    }
-}
-
-#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-enum Direction {
-    North,
-    South,
-    East,
-    West,
-}
-
-impl Direction {
-    fn to_coord(&self) -> Coord {
-        match self {
-            Direction::North => Coord { x: 0, y: -1 },
-            Direction::South => Coord { x: 0, y: 1 },
-            Direction::East => Coord { x: 1, y: 0 },
-            Direction::West => Coord { x: -1, y: 0 },
-        }
-    }
-
-    fn turn_right(&self) -> Direction {
-        match self {
-            Direction::North => Direction::East,
-            Direction::South => Direction::West,
-            Direction::East => Direction::South,
-            Direction::West => Direction::North,
-        }
-    }
-}
 
 fn do_walk(map: &Map, start: Coord, dir: Direction) -> HashSet<Coord> {
     let mut visited: HashSet<Coord> = HashSet::new();
@@ -145,14 +114,14 @@ fn read_input(input: &str) -> (Map, Coord) {
 impl Solution for Day06 {
     fn part1(&self, input: &str) -> String {
         let (map, guard_pos) = read_input(input);
-        let dir = Direction::North;
+        let dir = Direction::Up;
         let walk = do_walk(&map, guard_pos, dir);
         walk.len().to_string() // 5153
     }
 
     fn part2(&self, input: &str) -> String {
         let (map, guard_pos) = read_input(input);
-        let dir = Direction::North;
+        let dir = Direction::Up;
         let walk = do_walk(&map, guard_pos, dir);
 
         let mut res = 0;
@@ -161,7 +130,7 @@ impl Solution for Day06 {
                 continue;
             }
             // Check if placing an obstacle here creates a loop
-            if is_loop(&map, guard_pos, Direction::North, pos) {
+            if is_loop(&map, guard_pos, Direction::Up, pos) {
                 res += 1;
             }
         }

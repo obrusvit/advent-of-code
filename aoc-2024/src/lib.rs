@@ -5,6 +5,7 @@ pub trait Solution {
 
 pub mod utils {
     use std::fs;
+    use std::ops::Add;
     use std::path::Path;
 
     pub fn read_input(day: u8) -> String {
@@ -23,6 +24,41 @@ pub mod utils {
     pub fn parse_numbers_from_string_comma(input: &str) -> Vec<i32> {
         input.split(",").map(|s| s.parse().unwrap()).collect()
     }
+
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
+    pub struct Coord {
+        pub x: i32,
+        pub y: i32,
+    }
+
+    impl Add for Coord {
+        type Output = Coord;
+        fn add(self, other: Coord) -> Coord {
+            Coord {
+                x: self.x + other.x,
+                y: self.y + other.y,
+            }
+        }
+    }
+
+    #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
+    pub enum Direction {
+        Up,
+        Down,
+        Right,
+        Left,
+    }
+
+    impl Direction {
+        pub fn to_coord(&self) -> Coord {
+            match self {
+                Direction::Up => Coord { x: 0, y: -1 },
+                Direction::Down => Coord { x: 0, y: 1 },
+                Direction::Right => Coord { x: 1, y: 0 },
+                Direction::Left => Coord { x: -1, y: 0 },
+            }
+        }
+    }
 }
 
 pub mod day01;
@@ -39,6 +75,7 @@ pub mod day11;
 pub mod day12;
 pub mod day13;
 pub mod day14;
+pub mod day15;
 
 pub fn get_solver(day: u8) -> Option<Box<dyn Solution>> {
     match day {
@@ -56,6 +93,7 @@ pub fn get_solver(day: u8) -> Option<Box<dyn Solution>> {
         12 => Some(Box::new(day12::Day12)),
         13 => Some(Box::new(day13::Day13)),
         14 => Some(Box::new(day14::Day14)),
+        15 => Some(Box::new(day15::Day15)),
         _ => None,
     }
 }
